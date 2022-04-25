@@ -130,9 +130,7 @@ public class GerenciarPerfil extends HttpServlet {
 			"<script type='text/javascript'>" +
 			"alert('" + mensagem + "');" +
 			"location.href='listarPerfis.jsp';" +
-			"</script>"
-			
-				);
+			"</script>");
 		
 	
 	}

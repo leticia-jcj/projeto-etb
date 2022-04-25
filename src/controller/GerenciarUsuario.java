@@ -83,10 +83,8 @@ public class GerenciarUsuario extends HttpServlet {
 		out.println(
 				"<script type='text/javascript'>" +
 				"alert('" + mensagem + "');" +
-				"location.href='listarUsuarios.jsp';" +
-				"</script>"
-				
-		);
+				"location.href='listarUsuario.jsp';" +
+				"</script>");
 		
 		
 	}
@@ -128,8 +126,7 @@ public class GerenciarUsuario extends HttpServlet {
 		}else {
 			u.setSenha(senha);
 		}
-			
-		
+
 		
 		if(status.equals("") || status.isEmpty()){
 			mensagem = "Informe o status do usuário!";
@@ -155,20 +152,13 @@ public class GerenciarUsuario extends HttpServlet {
 		
 		} catch (SQLException e) {
 			mensagem = "Erro: " + e.getMessage();
-			
 		}
 		
 		out.println(
 				"<script type='text/javascript'>" +
 				"alert('" + mensagem + "');" +
-				"location.href='listarUsuarios.jsp';" +
-				"</script>"
-				
-		);
-	
-		
-	
-		
+				"location.href='listarUsuario.jsp';" +
+				"</script>"	);	
 
 }
 }

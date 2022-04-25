@@ -110,11 +110,11 @@
 			
 			
 			<div class="d-grip gap-2 d-md-flex justify-content-md-end mr-3">
-				<button class="btn btn-primary btn-md mr-2">
+				<button class="btn btn-primary btn-md mr-2" >
 					Gravar&nbsp;
 					<i class="fa-solid fa-floppy-disk"></i>
 				</button>
-				<a href="listarUsuarios.jsp"
+				<a href="listarUsuario.jsp"
 					class="btn btn-info btn-md"
 					role="button">
 					Voltar&nbsp;

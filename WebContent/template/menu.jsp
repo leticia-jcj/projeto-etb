@@ -10,7 +10,7 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav ml-lg-auto">
+				<ul class="navbar-nav">
 					<li class="nav-item">
 						<a class="nav-link active"
 							aria-current="page" href="index.jsp">Home</a>

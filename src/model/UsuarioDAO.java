@@ -59,7 +59,7 @@ public class UsuarioDAO {
 		throws SQLException{
 		con = ConexaoFactory.conectar();
 		if(u.getIdUsuario() == 0) {
-			sql = "INSERT INTO USUARIO " + 
+			sql = "INSERT INTO usuario " + 
 					"(nome, login, senha, status, idPerfil) " +
 					"VALUES (?, ?, ?, ?, ?)";
 			
