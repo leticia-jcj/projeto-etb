@@ -77,8 +77,8 @@
 										</a>
 										<script type="text/javascript">
 											function confirmExclusao(id,nome,cpf,email,endereco,telefone){
-												if(confirm('Deseja realmente excluir o Cliente?'
-														+nome+ ' ?,?,?,?,?')){
+												if(confirm('Deseja realmente excluir o Cliente? '
+														+nome)){
 												location.href="gerenciarCliente?acao=deletar&idCliente="+id;
 												}
 											}

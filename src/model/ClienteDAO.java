@@ -76,8 +76,8 @@ public class ClienteDAO {
 	public Cliente getCarregarPorId(int idCliente)throws 
 		SQLException {
 		Cliente cliente = new Cliente();
-		sql = "SELECT idCliente, nome, cpf, email, endereco, telefone" +
-			  "FROM cliente WHERE idCliente = ?";
+		sql = "SELECT idCliente, nome, cpf, email, endereco, telefone " +
+			  " FROM cliente WHERE idCliente = ?";
 		
 		con = ConexaoFactory.conectar();
 		ps = con.prepareStatement(sql);

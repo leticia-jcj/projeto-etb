@@ -1,5 +1,5 @@
 package controller;
-import jakarta.servlet.http.HttpServlet;
+
 import model.Cliente;
 import model.ClienteDAO;
 
@@ -11,6 +11,7 @@ import java.text.ParseException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -106,7 +107,7 @@ public class GerenciarCliente extends HttpServlet {
     				
     			}else {
     				cliente.setNome(nome);
-    				cliente.setNome(cpf);
+    				cliente.setCpf(cpf);
     				cliente.setEmail(email);
     				cliente.setEndereco(endereco);
     				cliente.setTelefone(telefone);

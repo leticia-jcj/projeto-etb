@@ -31,7 +31,7 @@
 		</div> <!-- fim da div menu -->
 		
 		<div id="conteudo" class="bg-background">
-			<form action="gerenciarPerfil" method="POST">
+			<form action="gerenciarCliente" method="POST">
 			<h3 class="text-center mt-3">Cadastro de Cliente</h3>
 			
 			<input type="hidden" id="idcliente" name="idCliente"
