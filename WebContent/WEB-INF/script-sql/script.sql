@@ -94,6 +94,13 @@ CREATE TABLE `produto` (
   `status` int NOT NULL
 ) ENGINE='InnoDB' COLLATE 'utf8_danish_ci';
 
+INSERT INTO `menu` (`nome`, `link`, `icone`, `exibir`)
+VALUES ('Produto', '/listarProduto.jsp', NULL, '1');
+
+INSERT INTO `menu` (`nome`, `link`, `icone`, `exibir`)
+VALUES ('Cadastrar Produto', '/cadastrarProduto.jsp', NULL, '1');
+
+
 USE `projetoetb2022`;
 
 

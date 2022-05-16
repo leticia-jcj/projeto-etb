@@ -132,5 +132,10 @@ public class ProdutoDAO {
 		
 		return true;
 	}
+
+	public boolean deletar(int idProduto) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 }

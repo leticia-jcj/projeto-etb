@@ -123,6 +123,11 @@ public class ClienteDAO {
 		
 		return true;
 	}
+
+	public boolean deletar(int idCliente) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 	
 	

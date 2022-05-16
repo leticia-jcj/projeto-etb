@@ -17,7 +17,4 @@ public class Perfil {
 	private String nome;
 	private Date dataCadastro;
 
-	
-	
-
 }
