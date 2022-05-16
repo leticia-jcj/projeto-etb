@@ -28,7 +28,7 @@
 						<a class="nav-link" href="listarCliente.jsp">Clientes</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Produtos</a>
+						<a class="nav-link" href="listarProduto.jsp">Produtos</a>
 					</li>
 					
 				</ul>

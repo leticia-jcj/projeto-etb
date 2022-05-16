@@ -1,65 +1,65 @@
 package controller;
 
-import model.Cliente;
-import model.ClienteDAO;
+import jakarta.servlet.http.HttpServlet;
+import model.Produto;
+import model.ProdutoDAO;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.text.ParseException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/gerenciarCliente")
-public class GerenciarCliente extends HttpServlet {
+@WebServlet("/gerenciarProduto")
+public class GerenciarProduto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
- 
-    public GerenciarCliente() {
+   
+    public GerenciarProduto() {
         super();
         
     }
+
 
     protected void doGet(HttpServletRequest request, 
     		HttpServletResponse response) 
     		throws ServletException, IOException {
     		PrintWriter out = response.getWriter();
     		String acao = request.getParameter("acao");
-    		String idCliente = request.getParameter("idCliente");
+    		String idProduto = request.getParameter("idProduto");
     		String mensagem = "";
     		
-    		Cliente cliente = new Cliente();
-    		ClienteDAO clientedao = new ClienteDAO();
+    		Produto produto = new Produto();
+    		ProdutoDAO produtodao = new ProdutoDAO();
     		
     			try {
     			
     				if(acao.equals("deletar")) {
-    					cliente.setIdCliente(Integer.parseInt(idCliente));
-    						if(clientedao.deletar(cliente.getIdCliente())) {
+    					produto.setIdProduto(Integer.parseInt(idProduto));
+    					if(produtodao.deletar(produto.getIdProduto())) {
     							mensagem = 
-    									"Cliente exclu√≠do da base de dados!";
+    								"Produto excluÌdo da base de dados!";
     					
-    						}else {
-    							mensagem = 
-    						"Falha ao excluir o cliente da base de dados!";
-    						}
-    				
-    				}
+    					}else {
+    						mensagem = 
+    					"Falha ao excluir o produto da base de dados!";
+    					}
+    			}
+    		
     				if(acao.equals("alterar")){
-    					cliente = clientedao.getCarregarPorId(
-    							Integer.parseInt(idCliente));
-    					if(cliente.getIdCliente() > 0) {
+    					produto = produtodao.getCarregarPorId(
+    							Integer.parseInt(idProduto));
+    					if(produto.getIdProduto() > 0) {
     						RequestDispatcher dispatcher = (RequestDispatcher) getServletContext().
-							getRequestDispatcher("/cadastrarCliente.jsp");
-    						request.setAttribute("cliente", cliente);
+							getRequestDispatcher("/cadastrarProduto.jsp");
+    						request.setAttribute("produto", produto);
     						dispatcher.forward(request, response);
     						
     					}else {
-    						mensagem = "Cliente n√£o encontrado na base de dados!";
+    						mensagem = "Produto n„o encontrado na base de dados!";
     					}
     				}
     					
@@ -73,7 +73,7 @@ public class GerenciarCliente extends HttpServlet {
     		out.println(
     				"<script type='text/javascript'>" +
     				"alert('" + mensagem + "');" +
-    				"location.href='listarCliente.jsp';" +
+    				"location.href='listarProduto.jsp';" +
     				"</script>");
     }
    
@@ -84,39 +84,41 @@ public class GerenciarCliente extends HttpServlet {
     		throws ServletException, IOException {
     		response.setContentType("text/html; charset=UTF-8");
     		PrintWriter out = response.getWriter();
-    		String idCliente = request.getParameter("idCliente");
+    		String idProduto = request.getParameter("idProduto");
     		String nome = request.getParameter("nome");
-    		String cpf = request.getParameter("cpf");
-    		String email = request.getParameter("email");
-    		String endereco = request.getParameter("endereco");
-    		String telefone = request.getParameter("telefone");
+    		String descricao = request.getParameter("descricao");
+    		String estoque = request.getParameter("estoque");
+    		String preco = request.getParameter("preco");
+    		String nomearquivo = request.getParameter("nomearquivo");
+    		String caminho = request.getParameter("caminho");
     		String mensagem = "";
-    		Cliente cliente  = new Cliente();
-    	ClienteDAO clientedao = new ClienteDAO();
+    		
+    		Produto produto  = new Produto();
+    		ProdutoDAO produtodao = new ProdutoDAO();
     		
     		try {
     			//SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
     			
-    			if(!idCliente.isEmpty()) {
-    				cliente.setIdCliente(Integer.parseInt(idCliente));
+    			if(!idProduto.isEmpty()) {
+    				produto.setIdProduto(Integer.parseInt(idProduto));
     				
     			}
     			
     			if(nome.isEmpty() || nome.equals("")) {
-    				mensagem = "Campo Obrigat√≥rio";
+    				mensagem = "Campo ObrigatÛrio";
     				
     			}else {
-    				cliente.setNome(nome);
-    				cliente.setCpf(cpf);
-    				cliente.setEmail(email);
-    				cliente.setEndereco(endereco);
-    				cliente.setTelefone(telefone);
-    				if(clientedao.gravar(cliente)) {
+    				produto.setNome(nome);
+    				produto.setDescricao(descricao);
+    				produto.setPreco(serialVersionUID);
+    				produto.setNomeArquivo(nomearquivo);
+    				produto.setCaminho(caminho);
+    				if(produtodao.gravar(produto)) {
     					mensagem = 
-    						"Cliente gravado com sucesso na base de dados!";
+    						"Produto gravado com sucesso na base de dados!";
     				}else {
     					mensagem =
-    						"Falha ao gravar o cliente na base de dados!";
+    						"Falha ao gravar o produto na base de dados!";
     					
     				}
     			}
@@ -129,9 +131,10 @@ public class GerenciarCliente extends HttpServlet {
     		out.println(
     			"<script type='text/javascript'>" +
     			"alert('" + mensagem + "');" +
-    			"location.href='listarCliente.jsp';" +
+    			"location.href='listarProduto.jsp';" +
     			"</script>"
     			
     				);
     	}
+
 }

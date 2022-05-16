@@ -83,6 +83,17 @@ INSERT INTO `menu` (`idMenu`, `nome`, `link`, `icone`, `exibir`) VALUES
 (12,	'Cadastrar Menu',	'/cadastrarMenu.jsp',	'',	1),
 (13,	'Cadastrar Perfis',	'/cadastrarPerfis.jsp',	'',	1);
 
+CREATE TABLE `produto` (
+  `idProduto` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `nome` varchar(128) COLLATE 'utf8_danish_ci' NOT NULL,
+  `descricao` varchar(512) COLLATE 'utf8_danish_ci' NULL,
+  `estoque` int NOT NULL,
+  `preco` decimal NOT NULL,
+  `nomeArquivo` varchar(255) COLLATE 'utf8_danish_ci' NULL,
+  `caminho` varchar(512) COLLATE 'utf8_danish_ci' NULL,
+  `status` int NOT NULL
+) ENGINE='InnoDB' COLLATE 'utf8_danish_ci';
+
 USE `projetoetb2022`;
 
 

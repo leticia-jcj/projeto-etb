@@ -98,18 +98,33 @@ public class ClienteDAO {
 		return cliente;
 	}
 	
-	public boolean deletar(int idCliente) throws SQLException {
-		sql = "DELETE FROM cliente WHERE idCliente = ?";
+	public boolean desativar(Cliente cliente)throws SQLException{
+		sql = "UPDATE cliente set status = 0 " +
+			  "WHERE idCliente = ?";
 		
 		con = ConexaoFactory.conectar();
 		ps = con.prepareStatement(sql);
-		ps.setInt(1, idCliente);
+		ps.setInt(1, cliente.getIdCliente());
 		ps.executeUpdate();
 		ConexaoFactory.close(con);
 		
 		return true;
-		
 	}
+	
+	public boolean ativar(Cliente cliente)throws SQLException{
+		sql = "UPDATE cliente set status = 1 " +
+			  "WHERE idCliente = ?";
+		
+		con = ConexaoFactory.conectar();
+		ps = con.prepareStatement(sql);
+		ps.setInt(1, cliente.getIdCliente());
+		ps.executeUpdate();
+		ConexaoFactory.close(con);
+		
+		return true;
+	}
+	
+	
 	
 
 }
