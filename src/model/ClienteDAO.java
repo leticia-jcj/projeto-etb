@@ -44,7 +44,7 @@ public class ClienteDAO {
 		con = ConexaoFactory.conectar();
 		
 		if(cliente.getIdCliente() == 0) {
-			sql = "INSERT INTO cliente (nome, cpf, email, endereco, telefone) VALUES (?, ?,?,?,?)";
+			sql = "INSERT INTO cliente (nome, cpf, email, endereco, telefone) VALUES (?,?,?,?,?)";
 			
 			ps = con.prepareStatement(sql);
 			ps.setString(1, cliente.getNome());
@@ -124,9 +124,17 @@ public class ClienteDAO {
 		return true;
 	}
 
-	public boolean deletar(int idCliente) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean deletar(int idCliente) throws SQLException {
+		sql = "DELETE FROM cliente WHERE idCliente = ?";
+		
+		con = ConexaoFactory.conectar();
+		ps = con.prepareStatement(sql);
+		ps.setInt(1, idCliente);
+		ps.executeUpdate();
+		ConexaoFactory.close(con);
+		
+		return true;
+		
 	}
 	
 	

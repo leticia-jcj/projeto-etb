@@ -100,6 +100,13 @@ VALUES ('Produto', '/listarProduto.jsp', NULL, '1');
 INSERT INTO `menu` (`nome`, `link`, `icone`, `exibir`)
 VALUES ('Cadastrar Produto', '/cadastrarProduto.jsp', NULL, '1');
 
+UPDATE `menu` SET
+`idMenu` = '11',
+`nome` = 'Cadastrar Usuário',
+`link` = '/cadastrarUsuario.jsp',
+`icone` = '',
+`exibir` = '1'
+WHERE `idMenu` = '11';
 
 USE `projetoetb2022`;
 

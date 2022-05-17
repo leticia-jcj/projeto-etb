@@ -19,6 +19,16 @@
 	<link rel="stylesheet" href="datatables/dataTables.bootstrap4.min.css" type="text/css">
 	<link rel="stylesheet" href="datatables/jquery.dataTables.min.css" type="text/css">
 	<link rel="stylesheet" href="fonts/css/all.css" type="text/css">
+	<style type="text/css">
+		.center img{
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		
+		}
+	
+	</style>
+	
 </head>
 <body>
 	<div id="container">
@@ -51,10 +61,8 @@
 									<th>Código</th>
 									<th>Nome</th>
 									<th>Descrição</th>
-									<th>Estoque</th>
 									<th>Preço</th>
-									<th>Nome do Arquivo</th>
-									<th>Caminho</th>
+									<th>Estoque</th>
 									<th>Ação</th>
 								</tr>
 							
@@ -64,7 +72,10 @@
 								<c:forEach var="produto" items="${produtodao.lista }">
 								<tr>
 									<td>${produto.idProduto}</td>
-									<td>${produto.nome}</td>
+									<td class="center" style="texr-align:center"> 
+									<img src="produtoimagens/${produto.nomeArquivo}"
+										width="64" height="64">${produto.nome}
+									</td>
 									<td>${produto.descricao}</td>
 									<td>${produto.estoque}</td>
 									<td>${produto.preco}</td>

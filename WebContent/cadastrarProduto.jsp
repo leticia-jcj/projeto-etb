@@ -69,27 +69,19 @@
 					 class="col-md-2 col-form-label">Preço</label>
 				<div class="col-md-7">
 					<input type="text" name="preco" id="preco"
-					class="form-control" value="${produto.preco}">
+					 class="form-control" value="${produto.preco}">
 				</div>
 			</div>
 			
 			<div class="form-group row offset-md-2 mt-3">
-				<label for="idnomearquivo"
-					 class="col-md-2 col-form-label">Nome do Arquivo</label>
+				<label for="idfile"
+					 class="col-md-2 col-form-label">Imagem</label>
 				<div class="col-md-7">
-					<input type="text" name="nomearquivo" id="nomearquivo"
-					class="form-control" value="${produto.nomearquivo}">
+					<input type="file" multiple= "multiple" name= "file" id="idfile"
+					class="form-control" value="${produto.nomeArquivo}">
 				</div>
 			</div>
 			
-			<div class="form-group row offset-md-2 mt-3">
-				<label for="idcaminho"
-					 class="col-md-2 col-form-label">Caminho</label>
-				<div class="col-md-7">
-					<input type="text" name="caminho" id="caminho"
-					class="form-control" value="${produto.caminho}">
-				</div>
-			</div>
 			
 			<div class="form-group row offset-md-2">
 					<label for="idstatus"
@@ -99,11 +91,11 @@
 								class="form-control-md mt-2">
 							<option value="1" 
 								<c:if test="${produto.status == 1 }" >
-								</c:if> selected>Ativo
+								</c:if> selected>Ativado
 							</option>
 							<option value="0"
 								<c:if test="${produto.status == 0 }" >
-								</c:if> selected>Inativo
+								</c:if> selected>Desativado
 							</option>
 						</select>
 					</div>
